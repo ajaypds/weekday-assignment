@@ -1,3 +1,6 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 .app-root {
   width: 100%;
   overflow-y: auto;
@@ -96,4 +99,69 @@
   font-size: 1.125rem;
   line-height: 1.75rem;
   letter-spacing: 0.1rem;
+}
+
+.job-description-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 13rem;
+  gap: 0.5rem;
+}
+
+.job-description {
+  height: 11rem;
+  overflow: hidden;
+  text-align: justify;
+}
+
+.view-job-button {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 1rem;
+  padding-top: 6rem;
+  transform: translateY(-6.5rem);
+  /* translate: -7rem; */
+  background-image: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.6), transparent);
+
+  border-radius: 0.5rem;
+  color: rgb(30 64 175 /1 );
+  cursor: pointer;
+}
+
+.apply-button {
+  cursor: pointer;
+  text-align: center;
+  background-color:  rgb(84 239 195 / 1);
+  border-radius: 0.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: rgb(75 85 99 / 1);
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    /* transition-duration: 150ms; */
+    transition-duration: 500ms;
+    margin-top: 1rem;
+}
+
+.apply-button:hover {
+  background-color:  rgb(76 217 177 / 1);
+   color: rgb(64, 88, 120);
+}
+
+.apply-button:active {
+  background-color: rgb(64 181 148 / 1);
+}
+
+.flash-img {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: 0.25rem;
 }
