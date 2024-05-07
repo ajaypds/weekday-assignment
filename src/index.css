@@ -1,6 +1,99 @@
-.app-root{
+.app-root {
   width: 100%;
   overflow-y: auto;
   display: flex;
   justify-content: center;
+}
+
+.listing-main {
+  width: 24rem;
+  max-height: fit-content;
+  border-radius: 1.5rem;
+  padding: 1rem;
+  border: 1px solid rgb(243 244 246/1);
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.posted-date {
+  width: 50%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgb(229 231 235 /1);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+
+  border-radius: 9999px;
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
+  display: flex;
+  gap: 0.25rem;
+
+}
+
+.posted-date-img {
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.listing-info {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.company-logo {
+  height: 4rem;
+  width: 2.5rem;
+  background-color: rgb(229 231 235/1);
+  border-radius: 0.5rem;
+}
+
+.company-details-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.company-name {
+  color: rgb(156 163 175 / 1);
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.job-title-container {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.job-title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.checkmark {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: 0.25rem;
+}
+
+.job-location {
+  font-weight: 700;
+  color: rgb(75 85 99 /1);
+}
+
+.estimated-salary {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: 0.1rem;
 }
