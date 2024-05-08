@@ -10,11 +10,12 @@ body {
 
 .listing-main {
   width: 24rem;
-  max-height: fit-content;
+  height: auto;
   border-radius: 1.5rem;
   padding: 1rem;
+  margin: 5px;
   border: 1px solid rgb(243 244 246/1);
-  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -105,28 +106,52 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  height: 13rem;
-  gap: 0.5rem;
-}
-
-.job-description {
-  height: 11rem;
   overflow: hidden;
-  text-align: justify;
+  margin-bottom: 10px;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
 }
 
-.view-job-button {
-  width: 100%;
-  text-align: center;
-  padding-bottom: 1rem;
-  padding-top: 6rem;
-  transform: translateY(-6.5rem);
-  /* translate: -7rem; */
-  background-image: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.6), transparent);
+.show-description {
+  height: 350px;
+}
+.hide-description {
+  height: 13rem;
+}
 
-  border-radius: 0.5rem;
-  color: rgb(30 64 175 /1 );
+.job-description-content {
+  height: 100%;
+  width: 100%;
+  text-align: justify;
+  overflow: clip;
+}
+
+.job-description-overlay {
+  height: 100%;
+  width: 100%;
+  transform: translateY(-100%);
+  
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+}
+
+.show-overlay {
+  background-image: linear-gradient(to bottom, transparent, white);
+}
+.hide-overlay {
+    background-image: linear-gradient(to bottom, transparent, transparent);
+}
+
+.view-job {
+  width: 100%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
   cursor: pointer;
+  color: rgb(37 99 235 / 1 );
+  transform: translateY(-1rem);
 }
 
 .apply-button {
@@ -146,7 +171,6 @@ body {
 
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    /* transition-duration: 150ms; */
     transition-duration: 500ms;
     margin-top: 1rem;
 }
