@@ -6,6 +6,7 @@ body {
   overflow-y: auto;
   display: flex;
   justify-content: center;
+  vertical-align: middle;
 }
 
 .listing-main {
@@ -189,3 +190,29 @@ body {
   width: 1.5rem;
   margin-top: 0.25rem;
 }
+
+
+/* App.jsx */
+.listing-container {
+  height: fit-content;
+}
+
+.listing-grid {
+  display: grid;
+  gap: 2rem;
+  padding: 2rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 900px) {
+    .grid-cols {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1316px) {
+    .grid-cols {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
