@@ -1,11 +1,12 @@
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
+import { FormControl, InputLabel, MenuItem, Select, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { setSelectedFilter } from '../store/jobSlice'
 
 const Filters = () => {
 
     const jobFilter = useSelector((x) => x.job.filter)
-
+    const dispatch = useDispatch()
     const initialFilterState = {
         minExp: '',
         company: '',
@@ -20,11 +21,14 @@ const Filters = () => {
     const handleChange = (e) => {
         const { name, value } = e.target
 
-        console.log({ name, value });
-
         setFilterOptions((x) => {
             return { ...x, [name]: value }
         })
+
+        // updating option in redux state
+        setTimeout(() => {
+            dispatch(setSelectedFilter({ ...filterOptions, [name]: value }))
+        }, 100);
     }
 
     return (
@@ -77,7 +81,7 @@ const Filters = () => {
                     >
                         {(jobFilter && jobFilter.location.length > 0) && jobFilter.location.map((option, index) => {
                             return (
-                                <MenuItem key={index} value={option} sx={{ textTransform: 'capitalize' }}>{option}</MenuItem>
+                                <MenuItem key={index} value={option}><Typography sx={{ textTransform: 'capitalize' }}>{option}</Typography></MenuItem>
                             )
                         })}
                     </Select>
@@ -114,7 +118,7 @@ const Filters = () => {
                     >
                         {(jobFilter && jobFilter.role.length > 0) && jobFilter.role.map((option, index) => {
                             return (
-                                <MenuItem key={index} value={option} sx={{ textTransform: 'capitalize' }}>{option}</MenuItem>
+                                <MenuItem key={index} value={option} ><Typography sx={{ textTransform: 'capitalize' }}>{option}</Typography></MenuItem>
                             )
                         })}
                     </Select>

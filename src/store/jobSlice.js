@@ -14,6 +14,14 @@ const initialState = {
         remote: ['Remote', 'On-Site'],
         role: [],
         minBasePay: []
+    },
+    filterSelected: {
+        minExp: '',
+        company: '',
+        location: '',
+        remote: '',
+        role: '',
+        minBasePay: ''
     }
 }
 
@@ -59,7 +67,7 @@ export const jobSlice = createSlice({
         resetViewJob: (state) => {
             state.viewJobDescription = ''
         },
-        setFilter: (state) => {
+        setFilterOptionData: (state) => {
             if (state.data.length > 0) {
                 let filter = {
                     minExp: [],
@@ -81,6 +89,12 @@ export const jobSlice = createSlice({
                 state.filter.role = [...new Set(filter.role)]
                 state.filter.minBasePay = [...new Set(filter.minBasePay)].sort((a, b) => a - b)
             }
+        },
+        setSelectedFilter: (state, payload) => {
+            state.filterSelected = payload.payload
+        },
+        resetFilter: (state) => {
+            state.filterSelected = initialState.filterSelected
         }
     },
     extraReducers: (builder) => {
@@ -108,5 +122,5 @@ export const jobSlice = createSlice({
     }
 })
 
-export const { setViewJob, resetViewJob, setFilter } = jobSlice.actions
+export const { setViewJob, resetViewJob, setFilterOptionData, setSelectedFilter, resetFilter } = jobSlice.actions
 export default jobSlice.reducer

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import JobListing from './component/JobListing'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchData, setFilter } from './store/jobSlice'
+import { fetchData, setFilterOptionData } from './store/jobSlice'
 import Filters from './component/Filters'
 
 const App = () => {
@@ -28,7 +28,7 @@ const App = () => {
   }, [scrolledToEnd])
 
   useEffect(() => {
-    dispatch(setFilter())
+    dispatch(setFilterOptionData())
   }, [loading])
 
   useEffect(() => {
