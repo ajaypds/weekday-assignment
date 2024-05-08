@@ -18,9 +18,6 @@ const App = () => {
     if (window.innerHeight + window.scrollY < document.body.offsetHeight) {
       return
     }
-    setLength((x) => {
-      return x + 15
-    })
     updateScroll()
   }
 
