@@ -45,7 +45,12 @@ export const jobSlice = createSlice({
     name: 'job-listing',
     initialState,
     reducers: {
-
+        setViewJob: (state, payload) => {
+            state.viewJobDescription = payload.payload
+        },
+        resetViewJob: (state) => {
+            state.viewJobDescription = ''
+        }
     },
     extraReducers: (builder) => {
         builder.addCase(fetchData.pending, (state) => {
@@ -72,5 +77,5 @@ export const jobSlice = createSlice({
     }
 })
 
-export const { } = jobSlice.actions
+export const { setViewJob, resetViewJob } = jobSlice.actions
 export default jobSlice.reducer
