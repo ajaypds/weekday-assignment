@@ -1,8 +1,8 @@
-# React + Vite
+How to run this application locally:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Steps:
+1) Clone the repository
+2) create .env file and add below key 
+    VITE_API_URL=add-sample-data-api-url
+3) run 'npm install' to init node_modules
+4) run 'npm run dev' to run the application locally
