@@ -68,6 +68,7 @@ const App = () => {
               return selectedFilter.remote !== '' && selectedFilter.remote === 'Remote' ? x.location === 'remote' : x
             })
             .filter((x) => {
+              // handling null value in minJdSalary
               return selectedFilter.minBasePay !== '' ? x.minJdSalary ? x.minJdSalary >= selectedFilter.minBasePay : x.maxJdSalary >= selectedFilter.minBasePay : x
             })
             .map((job, index) => {
