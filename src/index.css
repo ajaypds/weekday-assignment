@@ -22,6 +22,22 @@ body {
   gap: 0.5rem;
 }
 
+.filter-section {
+  /* border: 1px solid black; */
+  
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.filter-container {
+  display: grid;
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
+  gap: 1rem;
+}
+
 .posted-date {
   width: 50%;
   padding-left: 1rem;
@@ -217,11 +233,17 @@ body {
     .grid-cols {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+    .filter-cols {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
 
 @media (min-width: 1316px) {
     .grid-cols {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .filter-cols {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
 

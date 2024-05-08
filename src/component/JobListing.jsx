@@ -33,7 +33,7 @@ const JobListing = ({ job }) => {
                     <div className='job-location'>{job.location}</div>
                 </div>
             </div>
-            <div className='estimated-salary'>Estimated Salary: {'\u20B9'}{job?.minJdSalary} - {job?.maxJdSalary} LPA</div>
+            <div className='estimated-salary'>Estimated Salary: {'\u20B9'}{job?.minJdSalary}{(job?.minJdSalary && job?.maxJdSalary) && ' - '}{job?.maxJdSalary} LPA</div>
             <div>Job Description:</div>
 
             <div className={`job-description-container ${viewJob === job?.jdUid ? 'show-description' : 'hide-description'}`}>

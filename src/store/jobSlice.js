@@ -6,7 +6,15 @@ const initialState = {
     viewJobDescription: '',
     loading: false,
     error: '',
-    data: []
+    data: [],
+    filter: {
+        minExp: [],
+        company: [],
+        location: [],
+        remote: ['Remote', 'On-Site'],
+        role: [],
+        minBasePay: []
+    }
 }
 
 
@@ -50,6 +58,29 @@ export const jobSlice = createSlice({
         },
         resetViewJob: (state) => {
             state.viewJobDescription = ''
+        },
+        setFilter: (state) => {
+            if (state.data.length > 0) {
+                let filter = {
+                    minExp: [],
+                    company: [],
+                    location: [],
+                    role: [],
+                    minBasePay: []
+                }
+                state.data.forEach(job => {
+                    job?.minExp && filter.minExp.push(job?.minExp)
+                    job?.companyName && filter.company.push(job?.companyName)
+                    job?.location && filter.location.push(job?.location)
+                    job?.jobRole && filter.role.push(job?.jobRole)
+                    job?.maxJdSalary && filter.minBasePay.push(job?.maxJdSalary)
+                });
+                state.filter.minExp = [...new Set(filter.minExp)].sort((a, b) => a - b)
+                state.filter.company = [...new Set(filter.company)]
+                state.filter.location = [...new Set(filter.location)]
+                state.filter.role = [...new Set(filter.role)]
+                state.filter.minBasePay = [...new Set(filter.minBasePay)].sort((a, b) => a - b)
+            }
         }
     },
     extraReducers: (builder) => {
@@ -77,5 +108,5 @@ export const jobSlice = createSlice({
     }
 })
 
-export const { setViewJob, resetViewJob } = jobSlice.actions
+export const { setViewJob, resetViewJob, setFilter } = jobSlice.actions
 export default jobSlice.reducer
