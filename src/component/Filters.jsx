@@ -1,7 +1,7 @@
-import { FormControl, InputLabel, MenuItem, Select, Typography } from '@mui/material'
+import { Button, FormControl, InputLabel, MenuItem, Select, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setSelectedFilter } from '../store/jobSlice'
+import { resetFilter, setSelectedFilter } from '../store/jobSlice'
 
 const Filters = () => {
 
@@ -29,6 +29,11 @@ const Filters = () => {
         setTimeout(() => {
             dispatch(setSelectedFilter({ ...filterOptions, [name]: value }))
         }, 100);
+    }
+
+    const handleReset = () => {
+        dispatch(resetFilter())
+        setFilterOptions(initialFilterState)
     }
 
     return (
@@ -142,6 +147,7 @@ const Filters = () => {
                     </Select>
                 </FormControl>
             </div>
+            <div style={{ width: '100%' }}><Button variant='contained' size='large' sx={{ width: '100%', paddingY: '0.75rem' }} onClick={handleReset}>Reset</Button></div>
         </div>
     )
 }
