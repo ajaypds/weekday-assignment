@@ -15,7 +15,7 @@ const url = import.meta.env.VITE_API_URL
 
 export const fetchData = createAsyncThunk('fetchData', async (offset) => {
     try {
-        console.log("Offset data: ", offset);
+        // console.log("Offset data: ", offset);
         const headers = new Headers();
         headers.append("Content-Type", "application/json");
 
