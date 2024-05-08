@@ -15,7 +15,7 @@ const initialState = {
         role: [],
         minBasePay: []
     },
-    filterSelected: {
+    selectedFilter: {
         minExp: '',
         company: '',
         location: '',
@@ -91,10 +91,10 @@ export const jobSlice = createSlice({
             }
         },
         setSelectedFilter: (state, payload) => {
-            state.filterSelected = payload.payload
+            state.selectedFilter = payload.payload
         },
         resetFilter: (state) => {
-            state.filterSelected = initialState.filterSelected
+            state.selectedFilter = initialState.selectedFilter
         }
     },
     extraReducers: (builder) => {

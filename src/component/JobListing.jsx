@@ -44,7 +44,7 @@ const JobListing = ({ job }) => {
             </div>
             <div className='view-job' onClick={handleViewJob}>{viewJob === job?.jdUid ? 'Hide Description' : 'View Description'}</div>
             <div>Minimum Experience</div>
-            <div>{job?.minExp} years</div>
+            <div>{job?.minExp ? job?.minExp : 0} years</div>
             <div className='apply-button'><img className='flash-img' src={flash} /> Easy Apply</div>
         </div>
     )

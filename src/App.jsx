@@ -9,6 +9,7 @@ const App = () => {
   const data = useSelector((x) => x.job.data)
   const offset = useSelector((x) => x.job.pageOffset)
   const loading = useSelector((x) => x.job.loading)
+  const selectedFilter = useSelector((x) => x.job.selectedFilter)
   const [scrolledToEnd, setScrolledToEnd] = useState(0)
   const dispatch = useDispatch()
 
@@ -46,15 +47,34 @@ const App = () => {
       {/* {JSON.stringify(data)} */}
       <div className='listing-container'>
         <div className='filter-section'>
-          <Filters />
+          {(data && data.length > 0) && <Filters />}
         </div>
         <div className='listing-grid grid-cols'>
 
-          {(data && data.length > 0) && data.map((job, index) => {
-            return (
-              <JobListing key={index} job={job} />
-            )
-          })}
+          {(data && data.length > 0) && data
+            .filter((x) => {
+              return selectedFilter.minExp !== '' ? x.minExp >= selectedFilter.minExp : x
+            })
+            .filter((x) => {
+              return selectedFilter.company !== '' ? x.companyName === selectedFilter.company : x
+            })
+            .filter((x) => {
+              return selectedFilter.location !== '' ? x.location === selectedFilter.location : x
+            })
+            .filter((x) => {
+              return selectedFilter.role !== '' ? x.jobRole === selectedFilter.role : x
+            })
+            .filter((x) => {
+              return selectedFilter.remote !== '' && selectedFilter.remote === 'Remote' ? x.location === 'remote' : x
+            })
+            .filter((x) => {
+              return selectedFilter.minBasePay !== '' ? x.minJdSalary ? x.minJdSalary >= selectedFilter.minBasePay : x.maxJdSalary >= selectedFilter.minBasePay : x
+            })
+            .map((job, index) => {
+              return (
+                <JobListing key={index} job={job} />
+              )
+            })}
         </div>
       </div>
     </div>
