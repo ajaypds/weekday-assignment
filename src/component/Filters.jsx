@@ -3,110 +3,138 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 const Filters = () => {
-    const [minBasePay, setMinBasePay] = useState('')
+
     const jobFilter = useSelector((x) => x.job.filter)
+
+    const initialFilterState = {
+        minExp: '',
+        company: '',
+        location: '',
+        remote: '',
+        role: '',
+        minBasePay: ''
+    }
+
+    const [filterOptions, setFilterOptions] = useState(initialFilterState)
+
+    const handleChange = (e) => {
+        const { name, value } = e.target
+
+        console.log({ name, value });
+
+        setFilterOptions((x) => {
+            return { ...x, [name]: value }
+        })
+    }
 
     return (
         <div className='filter-container filter-cols'>
             <div style={{ width: '100%' }}>
                 <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Min Experience</InputLabel>
+                    <InputLabel >Min Experience</InputLabel>
                     <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={10}
+                        name="minExp"
+                        value={filterOptions.minExp}
                         label="Min Experience"
                         placeholder="Min Experience"
-                    // onChange={handleChange}
+                        onChange={handleChange}
                     >
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                        {(jobFilter && jobFilter.minExp.length > 0) && jobFilter.minExp.map((option, index) => {
+                            return (
+                                <MenuItem key={index} value={option}>{option}</MenuItem>
+                            )
+                        })}
                     </Select>
                 </FormControl>
             </div>
             <div style={{ width: '100%' }}>
                 <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Company</InputLabel>
+                    <InputLabel >Company</InputLabel>
                     <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={10}
+                        name="company"
+                        value={filterOptions.company}
                         label="Company"
                         placeholder="Company"
-                    // onChange={handleChange}
+                        onChange={handleChange}
                     >
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                        {(jobFilter && jobFilter.company.length > 0) && jobFilter.company.map((option, index) => {
+                            return (
+                                <MenuItem key={index} value={option}>{option}</MenuItem>
+                            )
+                        })}
                     </Select>
                 </FormControl>
             </div>
             <div style={{ width: '100%' }}>
                 <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Location</InputLabel>
+                    <InputLabel >Location</InputLabel>
                     <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={10}
+                        name="location"
+                        value={filterOptions.location}
                         label="Location"
                         placeholder="Location"
-                    // onChange={handleChange}
+                        onChange={handleChange}
                     >
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                        {(jobFilter && jobFilter.location.length > 0) && jobFilter.location.map((option, index) => {
+                            return (
+                                <MenuItem key={index} value={option} sx={{ textTransform: 'capitalize' }}>{option}</MenuItem>
+                            )
+                        })}
                     </Select>
                 </FormControl>
             </div>
             <div style={{ width: '100%' }}>
                 <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Remote</InputLabel>
+                    <InputLabel >Remote</InputLabel>
                     <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={10}
+                        name="remote"
+                        value={filterOptions.remote}
                         label="Remote"
                         placeholder="Remote"
-                    // onChange={handleChange}
+                        onChange={handleChange}
                     >
-                        <MenuItem value='remote'>Remote</MenuItem>
-                        <MenuItem value='onsite'>Onsite</MenuItem>
+                        {(jobFilter && jobFilter.remote.length > 0) && jobFilter.remote.map((option, index) => {
+                            return (
+                                <MenuItem key={index} value={option}>{option}</MenuItem>
+                            )
+                        })}
                     </Select>
                 </FormControl>
             </div>
 
             <div style={{ width: '100%' }}>
                 <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Role</InputLabel>
+                    <InputLabel >Role</InputLabel>
                     <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={10}
+                        name="role"
+                        value={filterOptions.role}
                         label="Role"
                         placeholder="Role"
-                    // onChange={handleChange}
+                        onChange={handleChange}
                     >
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                        {(jobFilter && jobFilter.role.length > 0) && jobFilter.role.map((option, index) => {
+                            return (
+                                <MenuItem key={index} value={option} sx={{ textTransform: 'capitalize' }}>{option}</MenuItem>
+                            )
+                        })}
                     </Select>
                 </FormControl>
             </div>
             <div style={{ width: '100%' }}>
                 <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Min Base Pay</InputLabel>
+                    <InputLabel >Min Base Pay</InputLabel>
                     <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
+                        name="minBasePay"
                         placeholder='Min Base Pay'
-                        value={minBasePay}
+                        value={filterOptions.minBasePay}
                         label="Min Base Pay"
-                    // onChange={handleChange}
+                        onChange={handleChange}
                     >
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                        {(jobFilter && jobFilter.minBasePay.length > 0) && jobFilter.minBasePay.map((option, index) => {
+                            return (
+                                <MenuItem key={index} value={option}>{option}</MenuItem>
+                            )
+                        })}
                     </Select>
                 </FormControl>
             </div>
