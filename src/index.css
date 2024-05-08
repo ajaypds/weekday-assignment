@@ -56,8 +56,15 @@ body {
 .company-logo {
   height: 4rem;
   width: 2.5rem;
-  background-color: rgb(229 231 235/1);
+  /* background-color: rgb(229 231 235/1); */
   border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.company-logo img {
+  height: 4rem;
+  width: 2.5rem;
+  background-size: cover;
 }
 
 .company-details-container {
@@ -84,6 +91,7 @@ body {
   line-height: 1.75rem;
   letter-spacing: 0.1rem;
   margin-bottom: 0.5rem;
+  text-transform: capitalize;
 }
 
 .checkmark {
@@ -95,6 +103,7 @@ body {
 .job-location {
   font-weight: 700;
   color: rgb(75 85 99 /1);
+  text-transform: capitalize;
 }
 
 .estimated-salary {
